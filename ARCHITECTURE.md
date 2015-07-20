@@ -139,7 +139,6 @@ I'm using WebDriverJS to perform e2e testing in the app:
 
 NOTE: To run this e2e tests, you must have installed selenium in your computer.
 
-```
 
 ----------------------------------------
 
