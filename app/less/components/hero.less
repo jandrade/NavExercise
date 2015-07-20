@@ -1,0 +1,51 @@
+/**
+ * @fileOverview Hero component
+ *
+ * @version 1.0
+ */
+.hero {
+	color: @hero-text-color;
+	position: relative;
+	text-align: center;
+}
+
+.hero-bg {
+	background: transparent url(@hero-bg-image) no-repeat 0 0;
+	background-size: cover;
+	position: absolute;
+	bottom: 0;
+	height: 640px;
+	left: 0;
+	right: 0;
+	top: 0;
+	z-index: 0;
+}
+
+.hero-title {
+	padding: 1.57em 0;
+	position: relative;
+	z-index: 1;
+}
+
+.hero-description {
+	margin-top: 2.5em;
+}
+
+/**
+ * Mobile
+ * < 768
+ */
+@media only screen and (max-width : @screen-sm) {
+	.hero-bg {
+		height: 240px;
+	}
+
+	.hero-title {
+		color: @text-color;
+		padding: 290px 0 0;
+	}
+
+	.description {
+		margin-top: 3.125em;
+	}
+}

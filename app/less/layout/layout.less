@@ -1,0 +1,37 @@
+/**
+ * @fileOverview Master layout
+ *
+ * @version 1.0
+ * 
+ */
+
+.backdrop {
+	background-color: @backdrop-bg-color;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	top: 0;
+	z-index: 0;
+
+	opacity: 0;
+	visibility: hidden;
+	transition: @animation-default;
+}
+
+/**
+ * Mobile > Open navbar
+ */
+.menu-open {
+	.backdrop {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	.navbar {
+		display: block;
+		transform: translate3d(0, 0, 0);
+		transition-delay: 0s;
+		transition-duration: 0.5s;
+	}
+}

@@ -1,0 +1,180 @@
+/**
+ * @fileOverview Navigation component
+ *
+ * @version 1.0
+ */
+.navbar {
+	position: relative;
+	
+	a {
+		color: @navbar-text-color;
+		transition: @animation-default;
+			
+		&:hover {
+			background-color: @navbar-sub-bg-color;
+			color: @navbar-active-text-color;
+		}
+	}
+
+	li {
+		display: inline-block;
+	}
+	
+	/**
+	 * Primary navigation
+	 */
+	> ul {
+		font: 21px/48px @secondary-font;
+		width: 100%;
+		
+		/* Primary Nav > items */
+		> li {
+			position: relative;
+			z-index: 0;
+
+			// shared styles for navbar links
+			a {
+				display: block;
+				padding: unit(12/21, em) unit(24/21, em);
+				position: relative;
+				z-index: 2;
+			}
+		}
+
+		/**
+		 * Secondary navigation
+		 */
+		ul {
+			background-color: @navbar-sub-bg-color;
+			font-family: @primary-font;
+			font-size: @navbar-secondary-font-size;
+			position: absolute;
+			width: 225px;
+			z-index: 1;
+			transition: @animation-default;
+
+			opacity: 0;
+			visibility: hidden;
+
+			/* Secondary Nav > items */
+			li {
+				display: block;
+			}
+			
+			a {
+				color: @navbar-sub-text-color;
+				padding: 0 1.5em;
+
+				&:hover {
+					background-color: @navbar-active-bg-color;
+					color: @navbar-active-text-color;
+				}
+			}
+		}
+	}
+
+	/**
+	 * Open submenu
+	 */
+	.open {
+
+		> a {
+			background-color: @navbar-sub-bg-color;
+			color: @navbar-active-text-color;
+		}
+		
+		ul {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+
+	/**
+	 * Mobile
+	 * < 768
+	 */
+	@media only screen and (max-width : @screen-sm) {
+		background-color: @navbar-bg-color-sm;
+		float: left;
+		height: 100%;
+		overflow: hidden;
+		width: ~"calc(100% - 4.5em)";
+		transform: translate3d(-768px, 0, 0);
+		transition: @animation-only-transform;
+		
+		a {
+			color: @navbar-text-color-sm;
+			
+			&:hover {
+				background-color: @navbar-active-bg-color;
+				color: @navbar-active-text-color;
+			}
+		}
+
+		li {
+			display: block;
+		}
+		
+		// Mobile > Primary nav
+		> ul {
+			
+			> li {
+				a {
+					padding-bottom: 0;
+					padding-top: 0;
+				}
+			}
+
+			// Mobile > Secondary nav
+			ul {
+				max-height: 48px;
+				opacity: 1;
+				visibility: visible;
+				width: 100%;
+
+				&:before {
+					color: @navbar-active-text-color;
+					content: "❮";
+					float: right;
+					font-size: 1.5em;
+					margin-right: 1em;
+					margin-top: -2em;
+					position: absolute;
+					right: 0;
+					transform: rotate(-90deg);
+					transition: @animation-default;
+					transition-property: transform;
+				}
+
+				li {
+					opacity: 0;
+					visibility: hidden;
+				}
+			}
+		}
+
+		/**
+		 * Mobile > Open submenu
+		 */
+		.open {
+			ul {
+				max-height: 500px;
+				position: static;
+
+				&:before {
+					transform: rotate(90deg);
+				}
+
+				li {
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+
+			> a {
+				color: @navbar-text-color-sm;
+				z-index: auto;
+			}
+		}
+	}
+}

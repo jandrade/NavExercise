@@ -1,0 +1,252 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>HUGE Test - Styleguide</title>
+		<meta name="description" content="Style guide for HUGE test project">
+		<meta name="keywords" content="front end development, test, demo, html5, javascript, css">
+		<meta name="author" content="Juan David Andrade">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		
+		<link rel="stylesheet" type="text/css" href="assets/styles/main.css">
+
+  		<style type="text/css">
+  		body {
+  			background-color: #fff;
+  			margin: 1.5em;
+  		}
+
+  		.sg-group {
+  			float: left;
+  			margin: 1em 0;
+  			width: 100%;
+  		}
+
+  		.sg-group small {
+  			color: #bbb;
+  			font-size: 14px;
+  			line-height: 1.2em;
+  		}
+
+  		.header-title {
+  			font-size: 3.5em;
+  		}
+
+		.sg-title {
+  			box-shadow: 0 1px rgba(0, 0, 0, 0.4);
+  			font-size: 3em;
+  			margin-top: 0.5em;
+  			padding: 0.3em 0;
+  		}
+
+  		.sg-title:before {
+  			content: "# ";
+  		}
+
+  		.sg-subtitle {
+  			box-shadow: 0 1px rgba(0, 0, 0, 0.2);
+  			font-size: 2em;
+  			margin: 0.5em 0;
+  			padding: 0.3em 0;
+  		}
+
+  		.sg-subtitle:before {
+  			content: "## ";
+  		}
+
+  		.sg-box-container {
+  			display: block;
+  			display: flex;
+  			float: none;
+  			flex-direction: row; /* row, column */
+			justify-content: flex-start; /* flex-start, flex-end, center, space-between, space-around */
+			align-items: stretch; /* flex-start, flex-end, center, baseline, stretch */
+			align-content: flex-start; /* flex-start, flex-end, center, space-between, space-around, stretch */
+  		}
+
+  		.sg-box {
+  			background-color: #ddd;
+  			box-shadow: 0 0 2px rgba(0,0,0,0.2);
+  			color: #000;
+  			font-size: 0.9em;
+  			margin: 0.5%;
+  			padding: 1em;
+  			text-align: center;
+  			/*width: 100px;*/
+  		}
+
+  		/* Specific styles */
+  		.sg-colors .sg-box {
+  			flex-grow: 1;
+  		}
+
+  		@media all and (max-width: 768px) {
+  			.sg-box-container {
+				display: block;
+  			}
+
+  			.sg-box {
+				width: 100%;
+  			}
+  		}
+  		</style>
+	</head>
+	<body>
+		<img src="assets/images/HUGE-magenta" alt="HUGE Logo" width="150" height="60">
+		<h1 class="header-title">Home Test. <small>Styleguide.</small></h1>
+		
+		<section id="colors" class="sg-colors">
+			<header>
+				<h2 class="sg-title">Colors.</h2>
+			</header>
+			<div class="sg-group sg-box-container">
+				<div class="sg-box" style="background-color: #fff;">
+					#fff
+					<div class="sg-label">@color-01</div>
+					<div class="sg-label">White</div>
+				</div>
+
+				<div class="sg-box" style="background-color: #ec008c; color: #fff;">
+					#ec008c<br>
+					@color-02 / Magenta
+				</div>
+
+				<div class="sg-box" style="background-color: #eee;">
+					#eee<br>
+					@color-03 / Light Gray
+				</div>
+
+				<div class="sg-box" style="background-color: rgba(0, 0, 0, 0.5); color: #fff;">
+					rgba(0, 0, 0, 0.5)<br>
+					<div class="sg-label">@color-04</div>
+					<div class="sg-label">Translucent Black</div>
+				</div>
+
+				<div class="sg-box" style="background-color: #000; color: #fff;">
+					#000<br>
+					<div class="sg-label">@color-05</div>
+					<div class="sg-label">Black</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="#typography" class="sg-typography">
+			<h2 class="sg-title">Typography.</h2>
+
+			<div class="sg-group">
+				<h3 class="sg-subtitle">Desktop.</h3>
+				<h1>Headline <small>120/132 HUGE Avant Garde Bold</small></h1>
+				<p>Body Copy (Desktop) <small>24/36 Galaxie Copernicus Book</small></p>
+				<p>Primary Navigation <small>21/48 HUGE Avant Garde Bold</small></p>
+				<p>Secondary Navigation <small>16/48 Galaxie Copernicus Book</small></p>
+
+				<h3 class="sg-subtitle">Mobile.</h3>
+				<h2>Headline <small>44/48 HUGE Avant Garde Bold</small></h2>
+				<p>Body Copy (Mobile) <small>14/24 Galaxie Copernicus Book</small></p>
+				<p>Copyright (Mobile) <small>12/16 Helvetica Neue Regular</small></p>
+			</div>
+		</section>
+
+		<section id="#icons" class="sg-icons">
+			<h2 class="sg-title">Icons</h2>
+			<div class="sg-group sg-box-container">
+				<div class="sg-box">
+					<img src="assets/images/toggle-close.svg" alt="Toogle Navigation" width="72" height="72">
+					<div class="sg-label">toggle-close.svg</div>
+				</div>
+				<div class="sg-box">
+					<img src="assets/images/toggle-open.svg" alt="Toogle Navigation" width="72" height="72">
+					<div class="sg-label">toggle-open.svg</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="#navigation" class="sg-navigation">
+			<h2 class="sg-title">Navigation</h2>
+			<div class="sg-group">
+				<header class="header">
+					<div class="actions">
+						<a href="/" class="logo" title="HUGE"></a>
+						<a href="#" class="nav-toggle"></a>
+					</div>
+					
+					<nav class="navbar">
+						<ul class="navbar-menu">
+							<li>
+								<a href="#">Work</a>
+							</li><li>
+								<a href="#">About</a>
+								<ul>
+									<li><a href="#">What we do</a></li>
+									<li><a href="#">How we work</a></li>
+									<li><a href="#">Leadership</a></li>
+								</ul>
+							</li><li>
+								<a href="#">Careers</a>
+								<ul>
+									<li><a href="#">Client Services</a></li>
+									<li><a href="#">Creative</a></li>
+									<li><a href="#">Motion & Media</a></li>
+									<li><a href="#">Operations</a></li>
+									<li><a href="#">People</a></li>
+									<li><a href="#">Strategy</a></li>
+									<li><a href="#">Technology</a></li>
+									<li><a href="#">UX & Product Design</a></li>
+								</ul>
+							</li><li>
+								<a href="#">Ideas</a>
+								<ul>
+									<li><a href="#">Reports</a></li>
+									<li><a href="#">Perspectives</a></li>
+									<li><a href="#">Books</a></li>
+									<li><a href="#">Videos</a></li>
+								</ul>
+							</li><li>
+								<a href="#">News</a>
+							</li><li>
+								<a href="#">Events</a>
+							</li><li>
+								<a href="#">Contact</a>
+								<ul>
+									<li><a href="#">Atlanta</a></li>
+									<li><a href="#">Brooklyn</a></li>
+									<li><a href="#">DC</a></li>
+									<li><a href="#">London</a></li>
+									<li><a href="#">Los Angeles</a></li>
+									<li><a href="#">Portland</a></li>
+									<li><a href="#">Rio</a></li>
+									<li><a href="#">San Francisco</a></li>
+								</ul>
+							</li>
+						</ul>
+						<footer class="footer">
+							&copy; 2014 Huge. All Rights Reserved.
+						</footer>
+					</nav>
+				</header>
+				<div class="backdrop"></div>
+			</div>
+		</section>
+
+		<section id="#hero" class="sg-hero">
+			<h2 class="sg-title">Hero</h2>
+			<div class="sg-group">
+				<section class="hero">
+					<div class="hero-bg"></div>
+					<h1 class="hero-title">Get paid for giving a shit.</h1>
+					<div class="description">
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet semper neque vel porttitor. Morbi vel urna vestibulum, rutrum diam auctor, commodo nisi. Praesent tincidunt gravida tortor, vel fringilla felis accumsan a. Praesent posuere, orci vitae pulvinar sagittis, ex diam rutrum eros, eget semper orci velit a ex. Cras vitae aliquet enim. Praesent ac mattis diam. Aliquam id orci suscipit, euismod sem sed, fermentum ipsum. Integer eu condimentum odio. Maecenas consequat diam quam, quis egestas est lacinia non. Donec vitae tortor sit amet sem tincidunt interdum. Proin ac massa sed metus tempor pharetra vel ac ligula.</p>
+					</div>
+				</section>
+			</div>
+		</section>
+
+		<!-- JS scripts -->
+		<script type="text/javascript" src="scripts/huge/utils/input.js"></script>
+		<script type="text/javascript" src="scripts/huge/components/drawer.js"></script>
+		<script type="text/javascript" src="scripts/huge/components/navbar.js"></script>
+		<script type="text/javascript" src="scripts/huge/main.js"></script>
+	</body>
+</html>

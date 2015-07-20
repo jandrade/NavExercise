@@ -1,0 +1,481 @@
+/**
+ * @fileOverview Project styles / includes
+ *
+ * @version 1.0
+ * @author Juan David Andrade <juandavidandrade@gmail.com>
+ */
+/**================================================
+ * 1. Config
+ * This section include global variables and mixins
+ */
+/**
+ * @fileOverview Project Variables
+ *
+ * @version 1.0
+ */
+/**-----------------------------------------
+ * Color Palette
+ */
+/**-----------------------------------------
+ * Fonts
+ */
+/**-----------------------------------------
+ * Default Theme
+ */
+/**-----------------------------------------
+ * Utils
+ */
+/**-----------------------------------------
+ * Media Queries
+ */
+/**================================================
+ * 2. Base styles
+ * Project initialization
+ */
+/**
+ * @fileOverview Base styles
+ * This file should only include html tags
+ *
+ * @version 1.0
+ * 
+ * @see /app/styleguide.html#typography
+ */
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font: 16px 'Galaxie', sans-serif;
+  line-height: 1.5em;
+  -webkit-font-smoothing: antialiased;
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+/**
+ * Headings
+ */
+h1,
+h2,
+h3 {
+  font-family: 'HUGEAvantGardeBold', sans-serif;
+  font-weight: 400;
+  line-height: 1;
+  margin: 0;
+}
+h1 {
+  font-size: 7.5em;
+  font-weight: 700;
+  line-height: 1.1em;
+}
+h2 {
+  font-size: 2.75em;
+  font-weight: 700;
+  line-height: 1.09090909em;
+}
+/**
+ * Paragraphs
+ */
+p {
+  color: #000000;
+  font-size: 1.5em;
+  line-height: 1.5em;
+}
+/**
+ * Lists
+ */
+ul,
+ul li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+/**
+ * Links
+ */
+a {
+  color: #ec008c;
+  text-decoration: none;
+}
+a:hover {
+  color: #d3007d;
+}
+/**
+ * Media
+ */
+img {
+  height: auto;
+  max-width: 100%;
+}
+/**
+ * Mobile
+ * < 768
+ */
+@media only screen and (max-width: 48em) {
+  h1 {
+    font-size: 2.75em;
+    line-height: 1.09090909em;
+  }
+  h2 {
+    font-size: 1.5em;
+    line-height: 0.66666667em;
+  }
+  p {
+    font-size: 0.875em;
+    line-height: 1.71428571em;
+  }
+}
+/**
+ * @fileOverview HUGE Fonts
+ * Fonts used in the project
+ *
+ * @version 1.0
+ * 
+ * @see /app/styleguide.html#fonts
+ */
+@font-face {
+  font-family: 'HUGEAvantGardeBold';
+  src: url("../fonts/huge_agb_v5-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/huge_agb_v5-webfont.woff") format("woff"), url("../fonts/huge_agb_v5-webfont.ttf") format("truetype"), url("../fonts/huge_agb_v5-webfont.svg#svgFontName") format("svg");
+}
+@font-face {
+  font-family: 'Galaxie';
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/GalaxieCopernicus-Book.eot?#iefix") format("embedded-opentype"), url("../fonts/GalaxieCopernicus-Book.woff") format("woff"), url("../fonts/GalaxieCopernicus-Book.svg#svgFontName") format("svg");
+}
+@font-face {
+  font-family: 'Galaxie';
+  font-style: italic;
+  font-weight: normal;
+  src: url("../fonts/GalaxieCopernicus-BookItalic.eot?#iefix") format("embedded-opentype"), url("../fonts/GalaxieCopernicus-BookItalic.woff") format("woff"), url("../fonts/GalaxieCopernicus-BookItalic.svg#svgFontName") format("svg");
+}
+/**================================================
+ * 3. Main layout
+ * Definition of the master layout
+ */
+/**
+ * @fileOverview Master layout
+ *
+ * @version 1.0
+ * 
+ */
+.backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s cubic-bezier(0, 1, 0.5, 1);
+}
+/**
+ * Mobile > Open navbar
+ */
+.menu-open .backdrop {
+  opacity: 1;
+  visibility: visible;
+}
+.menu-open .navbar {
+  display: block;
+  transform: translate3d(0, 0, 0);
+  transition-delay: 0s;
+  transition-duration: 0.5s;
+}
+/**
+ * @fileOverview Global header
+ *
+ * @version 1.0
+ * 
+ */
+.header {
+  background-color: #ec008c;
+  color: #ffffff;
+  display: flex;
+  position: relative;
+  z-index: 1;
+}
+/**
+ * Main logo
+ */
+.logo {
+  background: transparent url('../images/HUGE-white.png') no-repeat 0 0;
+  background-size: cover;
+  display: block;
+  height: 24px;
+  margin: 1.5em;
+  width: 60px;
+}
+/**
+ * Mobile
+ * < 768
+ */
+@media only screen and (max-width: 48em) {
+  .header {
+    background-color: transparent;
+    display: block;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    /**
+		 * Toggle btn
+		 */
+  }
+  .header .actions {
+    background-color: #ec008c;
+    overflow: hidden;
+  }
+  .header .logo {
+    display: none;
+    float: left;
+  }
+  .header .nav-toggle {
+    background: transparent url('../images/toggle-open.svg') no-repeat 0 0;
+    background-size: cover;
+    display: block;
+    float: left;
+    height: 72px;
+    width: 72px;
+    transition: all 0.5s cubic-bezier(0, 1, 0.5, 1);
+  }
+  .menu-open .header {
+    bottom: 0;
+  }
+  .menu-open .logo {
+    display: block;
+  }
+  .menu-open .nav-toggle {
+    background-image: url('../images/toggle-close.svg');
+    float: right;
+  }
+}
+/**
+ * @fileOverview Global footer
+ *
+ * @version 1.0
+ * 
+ */
+.footer {
+  color: #000000;
+  font: 12px/16px 'Helvetica Neue Regular', sans-serif;
+  display: none;
+  padding: 1.33333em 2em;
+  /**
+	 * Mobile
+	 * < 768
+	 */
+}
+@media only screen and (max-width: 48em) {
+  .footer {
+    display: block;
+  }
+}
+/**================================================
+ * 4. Components
+ * Reusable components
+ */
+/**
+ * @fileOverview CSS animations / transitions
+ *
+ * @version 1.0
+ * 
+ */
+/**
+ * @fileOverview Hero component
+ *
+ * @version 1.0
+ */
+.hero {
+  color: #ffffff;
+  position: relative;
+  text-align: center;
+}
+.hero-bg {
+  background: transparent url('../images/background-image.jpg') no-repeat 0 0;
+  background-size: cover;
+  position: absolute;
+  bottom: 0;
+  height: 640px;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 0;
+}
+.hero-title {
+  padding: 1.57em 0;
+  position: relative;
+  z-index: 1;
+}
+.hero-description {
+  margin-top: 2.5em;
+}
+/**
+ * Mobile
+ * < 768
+ */
+@media only screen and (max-width: 48em) {
+  .hero-bg {
+    height: 240px;
+  }
+  .hero-title {
+    color: #000000;
+    padding: 290px 0 0;
+  }
+  .description {
+    margin-top: 3.125em;
+  }
+}
+/**
+ * @fileOverview Navigation component
+ *
+ * @version 1.0
+ */
+.navbar {
+  position: relative;
+  /**
+	 * Primary navigation
+	 */
+  /**
+	 * Open submenu
+	 */
+  /**
+	 * Mobile
+	 * < 768
+	 */
+}
+.navbar a {
+  color: #ffffff;
+  transition: all 0.5s cubic-bezier(0, 1, 0.5, 1);
+}
+.navbar a:hover {
+  background-color: #ffffff;
+  color: #ec008c;
+}
+.navbar li {
+  display: inline-block;
+}
+.navbar > ul {
+  font: 21px/48px 'HUGEAvantGardeBold', sans-serif;
+  width: 100%;
+  /* Primary Nav > items */
+  /**
+		 * Secondary navigation
+		 */
+}
+.navbar > ul > li {
+  position: relative;
+  z-index: 0;
+}
+.navbar > ul > li a {
+  display: block;
+  padding: 0.57142857em 1.14285714em;
+  position: relative;
+  z-index: 2;
+}
+.navbar > ul ul {
+  background-color: #ffffff;
+  font-family: 'Galaxie', sans-serif;
+  font-size: 16px;
+  position: absolute;
+  width: 225px;
+  z-index: 1;
+  transition: all 0.5s cubic-bezier(0, 1, 0.5, 1);
+  opacity: 0;
+  visibility: hidden;
+  /* Secondary Nav > items */
+}
+.navbar > ul ul li {
+  display: block;
+}
+.navbar > ul ul a {
+  color: #000000;
+  padding: 0 1.5em;
+}
+.navbar > ul ul a:hover {
+  background-color: #eeeeee;
+  color: #ec008c;
+}
+.navbar .open > a {
+  background-color: #ffffff;
+  color: #ec008c;
+}
+.navbar .open ul {
+  opacity: 1;
+  visibility: visible;
+}
+@media only screen and (max-width: 48em) {
+  .navbar {
+    background-color: #ffffff;
+    float: left;
+    height: 100%;
+    overflow: hidden;
+    width: calc(100% - 4.5em);
+    transform: translate3d(-768px, 0, 0);
+    transition: transform 1s cubic-bezier(0, 1, 0.5, 1);
+    /**
+		 * Mobile > Open submenu
+		 */
+  }
+  .navbar a {
+    color: #000000;
+  }
+  .navbar a:hover {
+    background-color: #eeeeee;
+    color: #ec008c;
+  }
+  .navbar li {
+    display: block;
+  }
+  .navbar > ul > li a {
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+  .navbar > ul ul {
+    max-height: 48px;
+    opacity: 1;
+    visibility: visible;
+    width: 100%;
+  }
+  .navbar > ul ul:before {
+    color: #ec008c;
+    content: "❮";
+    float: right;
+    font-size: 1.5em;
+    margin-right: 1em;
+    margin-top: -2em;
+    position: absolute;
+    right: 0;
+    transform: rotate(-90deg);
+    transition: all 0.5s cubic-bezier(0, 1, 0.5, 1);
+    transition-property: transform;
+  }
+  .navbar > ul ul li {
+    opacity: 0;
+    visibility: hidden;
+  }
+  .navbar .open ul {
+    max-height: 500px;
+    position: static;
+  }
+  .navbar .open ul:before {
+    transform: rotate(90deg);
+  }
+  .navbar .open ul li {
+    opacity: 1;
+    visibility: visible;
+  }
+  .navbar .open > a {
+    color: #000000;
+    z-index: auto;
+  }
+}
+/**================================================
+ * 5. Pages
+ * Custom styles for each page of the project
+ */

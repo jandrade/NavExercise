@@ -1,0 +1,108 @@
+/**
+ * @fileOverview Base styles
+ * This file should only include html tags
+ *
+ * @version 1.0
+ * 
+ * @see /app/styleguide.html#typography
+ */
+html,
+body {
+	height: 100%;
+}
+
+body {
+	margin: 0;
+	font: @font-base @primary-font;
+	line-height: 1.5em;
+	-webkit-font-smoothing: antialiased;
+}
+
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+/**
+ * Headings
+ */
+h1, h2, h3 {
+	font-family: @secondary-font;
+	font-weight: @fw-regular;
+	line-height: 1;
+	margin: 0;
+}
+
+h1 {
+	font-size: @font-xxxl;
+	font-weight: @fw-bold;
+	line-height: unit(132/120, em);
+}
+
+h2 {
+	font-size: @font-xxl;
+	font-weight: @fw-bold;
+	line-height: unit(48/44, em);
+}
+
+/**
+ * Paragraphs
+ */
+p {
+	color: @text-color;
+	font-size: @font-xl;
+	line-height: 1.5em;
+}
+
+/**
+ * Lists
+ */
+ul {
+	&,
+	li {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+	}
+}
+
+/**
+ * Links
+ */
+a {
+	color: @link-color;
+	text-decoration: none;
+
+	&:hover{
+		color: darken(@link-color, 5%);
+	}
+}
+
+/**
+ * Media
+ */
+
+img {
+	height: auto;
+	max-width: 100%; //rwd
+}
+
+/**
+ * Mobile
+ * < 768
+ */
+@media only screen and (max-width : @screen-sm) {
+	h1 {
+		font-size: @font-xxl;
+		line-height: unit(48/44, em);
+	}
+
+	h2 {
+		font-size: @font-xl;
+		line-height: unit(24/36, em);
+	}
+
+	p {
+		font-size: @font-sm;
+		line-height: unit(24/14, em);
+	}
+}

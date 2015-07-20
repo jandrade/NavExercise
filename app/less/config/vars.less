@@ -1,0 +1,100 @@
+/**
+ * @fileOverview Project Variables
+ *
+ * @version 1.0
+ */
+
+/**-----------------------------------------
+ * Color Palette
+ */
+@color-01: #fff; // White
+@color-02: #ec008c; // Magenta
+@color-03: #eee; // Light Gray
+@color-04: rgba(0, 0, 0, 0.5); // Translucent Black
+@color-05: #000; // Black
+
+/**-----------------------------------------
+ * Fonts
+ */
+
+@primary-font: 'Galaxie', sans-serif;				// Secondary Navigation, Body Copy 
+@secondary-font: 'HUGEAvantGardeBold', sans-serif;	// Primary Navigation, Headline
+@terciary-font: 'Helvetica Neue Regular', sans-serif;	// Copyright
+
+// base font size
+@font-base: 16px;
+
+@font-xs: unit(12/@font-base, em);		// Copyright (Mobile)
+@font-sm: unit(14/@font-base, em);		// Body copy (Mobile)
+@font-md: unit(16/@font-base, em);		// Secondary navigation (Desktop)
+@font-lg: unit(21/@font-base, em);		// Primary navigation (All)
+@font-xl: unit(24/@font-base, em);		// Body Copy (Desktop)
+@font-xxl: unit(44/@font-base, em);		// Headline (Mobile)
+@font-xxxl: unit(120/@font-base, em);	// Headline (Desktop)
+
+// font weights
+@fw-light: 300;
+@fw-regular: 400;
+@fw-semibold: 600;
+@fw-bold: 700;
+
+/**-----------------------------------------
+ * Default Theme
+ */
+// base colors
+@bg-color: @color-01;
+@text-color: @color-05;
+@text-color-light: @color-01;
+@title-color: @color-01;
+@link-color: @color-02;
+
+// > Layout
+@header-bg-color: @color-02;
+@header-text-color: @color-01;
+@footer-text-color: @color-05;
+
+// > Components
+
+// 1. animations
+@animation-bezier-default: cubic-bezier(0, 1, 0.5, 1);
+@animation-default: all 0.5s @animation-bezier-default;
+@animation-only-transform: transform 1s @animation-bezier-default;
+
+// 2. hero
+@hero-bg-image: '../images/background-image.jpg';
+@hero-text-color: @title-color;
+
+// 3. drawer
+@backdrop-bg-color: @color-04;
+@drawer-bg-color: @color-01;
+@drawer-text-color: @color-05;
+@drawer-active-bg-color: @color-03;
+@drawer-sub-active-text-color: @color-02;
+
+// 4. navbar
+// 4.1. Desktop
+@navbar-text-color: @color-01;
+@navbar-primary-font-size: @font-lg;
+@navbar-secondary-font-size: @font-base;
+@navbar-active-bg-color: @color-03;
+@navbar-active-text-color: @color-02;
+@navbar-sub-bg-color: @color-01;
+@navbar-sub-text-color: @color-05;
+@navbar-close-image: '../images/toggle-close.svg';
+@navbar-open-image: '../images/toggle-open.svg';
+// 4.2. Mobile
+@navbar-bg-color-sm: @color-01;
+@navbar-text-color-sm: @color-05;
+
+@logo-image: '../images/HUGE-white.png';
+
+/**-----------------------------------------
+ * Utils
+ */
+@radius: 5px;
+@shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+
+/**-----------------------------------------
+ * Media Queries
+ */
+@screen-sm: 48em; // 768px

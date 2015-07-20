@@ -1,0 +1,79 @@
+/**
+ * @fileOverview Global header
+ *
+ * @version 1.0
+ * 
+ */
+.header {
+	background-color: @header-bg-color;
+	color: @header-text-color;
+	display: flex;
+	position: relative;
+	z-index: 1;
+}
+
+/**
+ * Main logo
+ */
+.logo {
+	background: transparent url(@logo-image) no-repeat 0 0;
+	background-size: cover;
+	display: block;
+	height: 24px;
+	margin: 1.5em;
+	width: 60px;
+}
+
+/**
+ * Mobile
+ * < 768
+ */
+@media only screen and (max-width : @screen-sm) {
+	.header {
+		background-color: transparent;
+		display: block;
+		left: 0;
+		position: fixed;
+		right: 0;
+		top: 0;
+			
+		.actions {
+			background-color: @header-bg-color;
+			overflow: hidden;
+		}
+
+		.logo {
+			display: none;
+			float: left;
+		}
+
+		/**
+		 * Toggle btn
+		 */
+		.nav-toggle {
+			background: transparent url(@navbar-open-image) no-repeat 0 0;
+			background-size: cover;
+			display: block;
+			float: left;
+			height: 72px;
+			width: 72px;
+			transition: @animation-default;
+		}
+	}
+
+	// mobile > menu open > header
+	.menu-open {
+		.header {
+			bottom: 0;
+		}
+
+		.logo {
+			display: block;
+		}
+
+		.nav-toggle {
+			background-image: url(@navbar-close-image);
+			float: right;
+		}
+	}
+}
