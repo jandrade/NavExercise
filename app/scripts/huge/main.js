@@ -6,8 +6,17 @@
 (function(HUGE) {
 	'use strict';
 
+	/**
+	 * Imports
+	 */
 	var Drawer = require('./components/drawer'),
+		NavbarBuilder = require('./components/navbarBuilder'),
 		Navbar = require('./components/navbar'),
+		http = require('./utils/http'),
+	/**
+	 * Project components
+	 */
+		navbarMenu,
 		drawer,
 		navbar;
 
@@ -28,9 +37,20 @@
 		navbar.hideMenu();
 	}
 
-	// add navbar behaviours
-	navbar = new Navbar('.navbar-menu', menuClicked);
-	// drawer component
-	drawer = new Drawer('.nav-toggle', drawerClicked);
+	/**
+	 * Initialize application
+	 * @param  {Array} data - Navigation items
+	 */
+	function initApp(data) {
+		// build navbar
+		navbarMenu = new NavbarBuilder('.navbar', data.items);
+		// add navbar behaviours
+		navbar = new Navbar('.navbar > ul', menuClicked);
+		// drawer component
+		drawer = new Drawer('.nav-toggle', drawerClicked);
+	}
+
+	// load nav data
+	http.get('/api/nav.json', initApp);
 
 })(window.HUGE = window.HUGE || {});

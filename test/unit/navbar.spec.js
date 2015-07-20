@@ -8,7 +8,7 @@
 (function() {
 	'use strict';
 
-	describe('Navbar:', function() {
+	describe('Components > Navbar:', function() {
 
 		var Navbar, navbar, navbarItem, thirdNavbarItem;
 

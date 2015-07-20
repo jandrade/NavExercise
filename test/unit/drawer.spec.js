@@ -8,7 +8,7 @@
 (function() {
 	'use strict';
 
-	describe('Drawer:', function() {
+	describe('Components > Drawer:', function() {
 
 		var Drawer, drawer;
 

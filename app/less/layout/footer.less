@@ -5,18 +5,25 @@
  * 
  */
 .footer {
+	bottom: 1em;
 	color: @footer-text-color;
 	font: 12px/16px @tertiary-font;
-	display: none;
+	opacity: 0;
 	padding: 1.33333em 2em;
 	position: absolute;
-	bottom: 6em;
+	visibility: hidden;
+	transition: @animation-default 0.25s;
+}
 
-	/**
-	 * Mobile
-	 * < 768
-	 */
-	@media only screen and (max-width : @screen-sm) {
-		display: block;
+/**
+ * Mobile
+ * < 768
+ */
+@media @screen-sm {
+	.menu-open {
+		.footer {
+			opacity: 1;
+			visibility: visible;
+		}		
 	}
 }

@@ -16,11 +16,15 @@
   "private": true,
   "scripts": {
     "test": "./node_modules/karma/bin/karma start test/karma.conf.js",
-    "start": "node ./bin/www",
+    "start": "npm run build & node ./bin/www",
+    "watch": "npm run watch-js & npm test & npm run copy & node ./bin/www",
+    "build": "npm run build-css & npm run copy & npm run build-public-js",
     "build-css": "./node_modules/.bin/lessc app/less/main.less app/assets/styles/main.css",
     "watch-css": "./node_modules/.bin/nodemon --watch app --ext less --exec 'npm run build-css'",
     "build-js": "./node_modules/.bin/browserify --debug app/scripts/huge/main.js | uglifyjs -mc > app/assets/scripts/main.js",
-    "watch-js": "./node_modules/.bin/watchify app/scripts/huge/main.js -dv -o app/assets/scripts/main.js"
+    "build-public-js": "./node_modules/.bin/browserify --debug app/scripts/huge/main.js | uglifyjs -mc > public/assets/scripts/main.js",
+    "watch-js": "./node_modules/.bin/watchify app/scripts/huge/main.js -dv -o app/assets/scripts/main.js",
+    "copy": "rm -r public/* | ./node_modules/.bin/copyfiles -f app/index.html app/styleguide.html public | ./node_modules/.bin/copyfiles -u 1 app/assets/**/*.* public"
   },
   "dependencies": {
     "express": "~4.2.0",
@@ -29,6 +33,7 @@
   "devDependencies": {
     "browserify": "^11.0.0",
     "browserify-istanbul": "^0.2.1",
+    "copyfiles": "^0.2.1",
     "jasmine-core": "^2.3.4",
     "karma": "^0.13.2",
     "karma-browserify": "^4.2.1",

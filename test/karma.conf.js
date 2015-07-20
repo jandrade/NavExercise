@@ -27,7 +27,7 @@ module.exports = function(config) {
 		// list of files / patterns to load in the browser
 		files: [
 			{pattern: 'app/scripts/huge/**/*.js', watched: true, served: true, included: true},
-			{pattern: 'test/unit/**/*.spec.js', watched: true, served: true, included: true},
+			{pattern: 'test/unit/**/*.js', watched: true, served: true, included: true},
 			{pattern: 'test/unit/**/*.html', watched: true, served: true, included: true},
 		],
 
