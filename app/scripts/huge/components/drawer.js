@@ -8,13 +8,18 @@
 	'use strict';
 
 	/**
+	 * imports
+	 */
+	var Utils = require('../utils/input');
+
+	/**
 	 * @namespace HUGE.components
 	 * Components namespace
 	 */
 	HUGE.components = HUGE.components || {};
 
 	/**
-	 * Represents a Navbar component
+	 * Represents a Drawer component
 	 * @constructor
 	 * @param {String} selector - The Element selector
 	 * @param {Function} backdropClicked Callback to be triggered when the button has been clicked
@@ -118,9 +123,9 @@
 			body = document.body;
 		
 			// event handlers
-			element.addEventListener(HUGE.utils.Input.CLICK, elementClickHandler, true);
-			backdrop.addEventListener(HUGE.utils.Input.CLICK, backdropClickHandler, true);
-			header.addEventListener(HUGE.utils.Input.CLICK, headerClickHandler, true);
+			element.addEventListener(Utils.Input.CLICK, elementClickHandler, true);
+			backdrop.addEventListener(Utils.Input.CLICK, backdropClickHandler, true);
+			header.addEventListener(Utils.Input.CLICK, headerClickHandler, true);
 		})();
 
 		return {
@@ -128,5 +133,7 @@
 		};
 	};
 
+	// expose module
+	module.exports = HUGE.components.Drawer;
 
 })(window.HUGE = window.HUGE || {});

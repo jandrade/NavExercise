@@ -6,12 +6,18 @@
 (function(HUGE) {
 	'use strict';
 
-	var drawer,
+	var Drawer = require('./components/drawer'),
+		Navbar = require('./components/navbar'),
+		drawer,
 		navbar;
 
-	function menuClicked() {
+	/**
+	 * A Navbar button has been clicked
+	 * @param {Boolean} show/hide
+	 */
+	function menuClicked(show) {
 		// show backdrop
-		drawer.toggleBackdrop(true);
+		drawer.toggleBackdrop(show);
 	}
 
 	/**
@@ -23,8 +29,8 @@
 	}
 
 	// add navbar behaviours
-	navbar = new HUGE.components.Navbar('.navbar-menu', menuClicked);
+	navbar = new Navbar('.navbar-menu', menuClicked);
 	// drawer component
-	drawer = new HUGE.components.Drawer('.nav-toggle', drawerClicked);
+	drawer = new Drawer('.nav-toggle', drawerClicked);
 
 })(window.HUGE = window.HUGE || {});

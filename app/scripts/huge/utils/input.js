@@ -1,5 +1,5 @@
 /**
-* @fileOverview Navigation component - Behaviours
+* @fileOverview Global utilities
 *
 * @version 1.0
 */
@@ -38,5 +38,8 @@
 			RESIZE: 'resize'
 		};
 	})();
+
+	// expose module
+	module.exports = HUGE.utils;
 
 })(window.HUGE = window.HUGE || {});

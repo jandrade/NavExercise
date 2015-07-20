@@ -9,7 +9,7 @@
 	color: @header-text-color;
 	display: flex;
 	position: relative;
-	z-index: 1;
+	z-index: 3;
 }
 
 /**
@@ -28,7 +28,7 @@
  * Mobile
  * < 768
  */
-@media only screen and (max-width : @screen-sm) {
+@media @screen-sm {
 	.header {
 		background-color: transparent;
 		display: block;

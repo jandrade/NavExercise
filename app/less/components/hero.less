@@ -22,30 +22,35 @@
 }
 
 .hero-title {
+	max-width: @container-width;
+	margin: 0 auto;
 	padding: 1.57em 0;
 	position: relative;
 	z-index: 1;
 }
 
 .hero-description {
-	margin-top: 2.5em;
+	margin: 2.5em auto 0 auto;
+	max-width: @container-width;
 }
 
 /**
  * Mobile
  * < 768
  */
-@media only screen and (max-width : @screen-sm) {
+@media @screen-sm {
 	.hero-bg {
 		height: 240px;
 	}
 
 	.hero-title {
 		color: @text-color;
+		margin: 0 0.5454545455em;
 		padding: 290px 0 0;
+		text-align: left;
 	}
 
-	.description {
-		margin-top: 3.125em;
+	.hero-description {
+		margin: 3.125em 1.5em 0;
 	}
 }

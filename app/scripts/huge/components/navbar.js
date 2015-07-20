@@ -7,6 +7,11 @@
 	'use strict';
 
 	/**
+	 * imports
+	 */
+	var Utils = require('../utils/input');
+
+	/**
 	 * @namespace HUGE.components
 	 * Components namespace
 	 */
@@ -15,6 +20,9 @@
 	/**
 	 * Represents a Navbar component
 	 * @constructor
+	 * @param {String} selector - The main selector
+	 * @param {Function} menuClicked Callback to be triggered when a button has been clicked
+	 * 
 	 * @return {Object} Public methods
 	 */
 	HUGE.components.Navbar = function Navbar(selector, menuClicked) {
@@ -45,27 +53,45 @@
 		}
 
 		/**
-		 * Navbar link has been clicked
-		 * @event
+		 * Show/hide submenu
+		 * @param  {HTMLElement} link - The menu item clicked
 		 */
-		function navbarClickHandler(e) {
-			var link = e.target,
-				parent = e.target.parentNode,
+		function toggleMenu(link) {
+			var	parent = link.parentNode,
 				submenu = link.nextElementSibling,
+				hasSubmenu = false,
 				isOpened = parent.classList.contains(SETTINGS.open);
 
 			hideMenu();
 			
 			// On click, if item contains other items, Secondary Navigation appears 
-			if (link.nodeName === 'A' && submenu && !isOpened) {
-				e.preventDefault();
-				parent.classList.toggle(SETTINGS.open);
+			if (link.nodeName === 'A' && submenu) {
+				hasSubmenu = true;
 
+				if (!isOpened) {
+					parent.classList.toggle(SETTINGS.open);
+				}
+				
 				if (typeof menuClicked === 'function') {
-					menuClicked();
+					menuClicked(!isOpened);
 				}
 			}
+
+			return hasSubmenu;
 		}
+
+		/**
+		 * Navbar link has been clicked
+		 * @event
+		 */
+		function navbarClickHandler(e) {
+			var hasSubmenu = toggleMenu(e.target);
+
+			if (hasSubmenu) {
+				e.preventDefault();
+			}
+		}
+
 		/**
 		 * @constructs HUGE.components.navbar
 		 * Component initialization
@@ -74,13 +100,16 @@
 			element = document.querySelector(selector);
 		
 			// event handlers
-			element.addEventListener(HUGE.utils.Input.CLICK, navbarClickHandler, true);	
+			element.addEventListener(Utils.Input.CLICK, navbarClickHandler, true);	
 		})();
 
 		return {
-			hideMenu: hideMenu
+			hideMenu: hideMenu,
+			toggleMenu: toggleMenu
 		};
 	};
 
+	// expose module
+	module.exports = HUGE.components.Navbar;
 
 })(window.HUGE = window.HUGE || {});
